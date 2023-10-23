@@ -1,0 +1,20 @@
+package org.example;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class connection {
+    Connection c;
+    Statement s;
+
+    public connection() {
+        try {
+            this.c = DriverManager.getConnection("jdbc:mysql:///bankmanagementsystem", "root", "shi@123khu@45");
+            this.s = this.c.createStatement();
+        } catch (Exception var2) {
+            System.out.println(var2);
+        }
+
+    }
+}
