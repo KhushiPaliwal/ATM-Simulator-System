@@ -1,0 +1,185 @@
+package org.example;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class SignupTwo extends JFrame implements ActionListener {
+    JTextField panTextField;
+    JTextField aadharTextField;
+    JButton next;
+    JRadioButton seniorCitizenYes;
+    JRadioButton seniorCitizenNo;
+    JRadioButton eYes;
+    JRadioButton eNo;
+    String formNo;
+    JComboBox religion;
+    JComboBox category;
+    JComboBox income;
+    JComboBox education;
+    JComboBox occupation;
+
+    SignupTwo(String formno) {
+        this.formNo = formno;
+        this.setLayout((LayoutManager)null);
+        this.setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 2");
+        JLabel additionalDetails = new JLabel("Page 2: Additional Details");
+        additionalDetails.setFont(new Font("Raleway", 1, 22));
+        additionalDetails.setBounds(290, 80, 400, 30);
+        this.add(additionalDetails);
+        JLabel Religion = new JLabel("Religion:");
+        Religion.setFont(new Font("Raleway", 1, 22));
+        Religion.setBounds(100, 140, 100, 30);
+        this.add(Religion);
+        String[] valReligion = new String[]{"Hindu", "Muslim", "Sikkh", "Christian"};
+        this.religion = new JComboBox(valReligion);
+        this.religion.setBounds(300, 140, 400, 30);
+        this.religion.setBackground(Color.WHITE);
+        this.add(this.religion);
+        JLabel Category = new JLabel("Category");
+        Category.setFont(new Font("Raleway", 1, 20));
+        Category.setBounds(100, 190, 200, 30);
+        this.add(Category);
+        String[] valCategory = new String[]{"General", "OBC", "ST", "SC", "Other"};
+        this.category = new JComboBox(valCategory);
+        this.category.setBounds(300, 190, 400, 30);
+        this.category.setBackground(Color.WHITE);
+        this.add(this.category);
+        JLabel Income = new JLabel("Income:");
+        Income.setFont(new Font("Raleway", 1, 20));
+        Income.setBounds(100, 240, 400, 30);
+        this.add(Income);
+        String[] valIncome = new String[]{"Null", " < 1, 50, 000", "< 2, 50, 000", "5, 00, 000", "Upto 10, 00, 000"};
+        this.income = new JComboBox(valIncome);
+        this.income.setBounds(300, 240, 400, 30);
+        this.income.setBackground(Color.WHITE);
+        this.add(this.income);
+        JLabel Education = new JLabel("Educational");
+        Education.setFont(new Font("Raleway", 1, 20));
+        Education.setBounds(100, 290, 200, 30);
+        this.add(Education);
+        JLabel Qualification = new JLabel("Qualification:");
+        Qualification.setFont(new Font("Raleway", 1, 20));
+        Qualification.setBounds(100, 320, 200, 30);
+        this.add(Qualification);
+        String[] valEducation = new String[]{"Non-Graduate", "Graduate", "Post-Graduate", "Doctorate", "Other"};
+        this.education = new JComboBox(valEducation);
+        this.education.setBounds(300, 320, 400, 30);
+        this.education.setBackground(Color.WHITE);
+        this.add(this.education);
+        JLabel Occupation = new JLabel("Occupation:");
+        Occupation.setFont(new Font("Raleway", 1, 20));
+        Occupation.setBounds(100, 370, 200, 30);
+        this.add(Occupation);
+        String[] valOccupation = new String[]{"Salaried", "Self- Employed", "Business", "Student"};
+        this.occupation = new JComboBox(valOccupation);
+        this.occupation.setBounds(300, 370, 400, 30);
+        this.occupation.setBackground(Color.WHITE);
+        this.add(this.occupation);
+        JLabel panno = new JLabel("PAN Number:");
+        panno.setFont(new Font("Raleway", 1, 20));
+        panno.setBounds(100, 420, 200, 30);
+        this.add(panno);
+        this.panTextField = new JTextField();
+        this.panTextField.setFont(new Font("Raleway", 1, 14));
+        this.panTextField.setBounds(300, 420, 400, 30);
+        this.add(this.panTextField);
+        JLabel aadhar = new JLabel("Aadhar Number:");
+        aadhar.setFont(new Font("Raleway", 1, 20));
+        aadhar.setBounds(100, 470, 200, 30);
+        this.add(aadhar);
+        this.aadharTextField = new JTextField();
+        this.aadharTextField.setFont(new Font("Raleway", 1, 14));
+        this.aadharTextField.setBounds(300, 470, 400, 30);
+        this.add(this.aadharTextField);
+        JLabel seniorCitizen = new JLabel("Senior Citizen:");
+        seniorCitizen.setFont(new Font("Raleway", 1, 20));
+        seniorCitizen.setBounds(100, 520, 200, 30);
+        this.add(seniorCitizen);
+        this.seniorCitizenYes = new JRadioButton("Yes");
+        this.seniorCitizenYes.setBackground(Color.WHITE);
+        this.seniorCitizenYes.setBounds(300, 520, 100, 30);
+        this.add(this.seniorCitizenYes);
+        this.seniorCitizenNo = new JRadioButton("No");
+        this.seniorCitizenNo.setBackground(Color.WHITE);
+        this.seniorCitizenNo.setBounds(450, 520, 100, 30);
+        this.add(this.seniorCitizenNo);
+        ButtonGroup seniorcitizenGroup = new ButtonGroup();
+        seniorcitizenGroup.add(this.seniorCitizenNo);
+        seniorcitizenGroup.add(this.seniorCitizenYes);
+        JLabel existingAcc = new JLabel("Existing Account:");
+        existingAcc.setFont(new Font("Raleway", 1, 20));
+        existingAcc.setBounds(100, 570, 200, 30);
+        this.add(existingAcc);
+        this.eYes = new JRadioButton("Yes");
+        this.eYes.setBackground(Color.WHITE);
+        this.eYes.setBounds(300, 570, 100, 30);
+        this.add(this.eYes);
+        this.eNo = new JRadioButton("No");
+        this.eNo.setBackground(Color.WHITE);
+        this.eNo.setBounds(450, 570, 100, 30);
+        this.add(this.eNo);
+        ButtonGroup ExisitingAccGroup = new ButtonGroup();
+        ExisitingAccGroup.add(this.seniorCitizenNo);
+        ExisitingAccGroup.add(this.eYes);
+        this.next = new JButton("Next");
+        this.next.setBackground(Color.BLACK);
+        this.next.setForeground(Color.WHITE);
+        this.next.setFont(new Font("Raleway", 1, 14));
+        this.next.setBounds(600, 660, 80, 30);
+        this.next.addActionListener(this);
+        this.add(this.next);
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setSize(850, 800);
+        this.setLocation(350, 10);
+        this.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        String sreligion = (String)this.religion.getSelectedItem();
+        String scategory = (String)this.category.getSelectedItem();
+        String sincome = (String)this.income.getSelectedItem();
+        String seducation = (String)this.education.getSelectedItem();
+        String soccupation = (String)this.occupation.getSelectedItem();
+        String sseniorCitizen = null;
+        if (this.seniorCitizenYes.isSelected()) {
+            sseniorCitizen = "Yes";
+        } else if (this.seniorCitizenNo.isSelected()) {
+            sseniorCitizen = "No";
+        }
+
+        String sexisting = null;
+        if (this.eNo.isSelected()) {
+            sexisting = "No";
+        } else if (this.eYes.isSelected()) {
+            sexisting = "Yes";
+        }
+
+        String span = this.panTextField.getText();
+        String sadhar = this.aadharTextField.getText();
+
+        try {
+            connection c = new connection();
+            String query = "insert into signuptwo values('" + this.formNo + "', '" + sreligion + "', '" + scategory + "', '" + sincome + "', '" + seducation + "', '" + soccupation + "', '" + sseniorCitizen + "', '" + sexisting + "', '" + span + "', '" + sadhar + "')";
+            c.s.executeUpdate(query);
+            this.setVisible(false);
+            (new SignupThree(this.formNo)).setVisible(true);
+        } catch (Exception var13) {
+            System.out.println(var13);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        new SignupTwo("");
+    }
+}
