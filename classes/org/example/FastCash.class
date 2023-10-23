@@ -1,0 +1,84 @@
+package org.example;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Deposit extends JFrame implements ActionListener {
+    JButton deposit;
+    JButton back;
+    JTextField amount;
+    String pinnumber;
+
+    Deposit(String pinnumber) {
+        this.pinnumber = pinnumber;
+        this.setLayout((LayoutManager)null);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(900, 900, 1);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel image = new JLabel(i3);
+        image.setBounds(0, 0, 900, 900);
+        this.add(image);
+        JLabel text = new JLabel("Enter the amount you want to deposit");
+        text.setBounds(170, 300, 400, 20);
+        text.setForeground(Color.WHITE);
+        text.setFont(new Font("System", 1, 16));
+        image.add(text);
+        this.amount = new JTextField();
+        this.amount.setFont(new Font("Raleway", 1, 22));
+        this.amount.setBounds(170, 350, 320, 25);
+        image.add(this.amount);
+        this.deposit = new JButton("Deposit");
+        this.deposit.setBounds(355, 485, 150, 30);
+        this.deposit.addActionListener(this);
+        image.add(this.deposit);
+        this.back = new JButton("Back");
+        this.back.setBounds(355, 520, 150, 30);
+        this.back.addActionListener(this);
+        image.add(this.back);
+        this.setSize(900, 300);
+        this.setLocation(300, 0);
+        this.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == this.deposit) {
+            String number = this.amount.getText();
+            Date date = new Date();
+            if (number.equals("")) {
+                JOptionPane.showMessageDialog((Component)null, "Please enter the amount you want to deposit");
+            } else {
+                try {
+                    connection c = new connection();
+                    String var10000 = this.pinnumber;
+                    String query = "insert into bank values('" + var10000 + "', '" + String.valueOf(date) + "', 'Deposit', '" + number + "')";
+                    c.s.executeUpdate(query);
+                    JOptionPane.showMessageDialog((Component)null, "Rs " + number + " Deposited Successfully");
+                    this.setVisible(false);
+                    (new Transactions(this.pinnumber)).setVisible(true);
+                } catch (Exception var6) {
+                    System.out.println(var6);
+                }
+            }
+        } else if (ae.getSource() == this.back) {
+            this.setVisible(false);
+            (new Transactions(this.pinnumber)).setVisible(true);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        new Deposit("");
+    }
+}
