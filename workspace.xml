@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0826aefc-d061-4a13-a79e-613dd0ee51ff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/New folder/build.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/New folder/manifest.mf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BalanceEnquiry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Deposit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/FastCash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MiniStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PinChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SignupOne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SignupThree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SignupTwo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Transactions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Withdrawl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/atm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/logo.jpg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2X6czEkD6hzZ0CSIrPp4Y3uoySd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Khushi/OneDrive/Desktop/Atm Simulator System/BalanceEnquiry.class",
+    "onboarding.tips.debug.path": "C:/Users/Khushi/OneDrive/Desktop/ASimulatorSystem/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Khushi\OneDrive\Desktop\ASimulatorSystem\src\main\java\org\example" />
+      <recent name="C:\Users\Khushi\OneDrive\Desktop\ASimulatorSystem" />
+      <recent name="C:\Users\Khushi\OneDrive\Desktop\ASimulatorSystem\.idea" />
+      <recent name="C:\Users\Khushi\OneDrive\Desktop\ASimulatorSystem\src\test\java" />
+      <recent name="C:\Users\Khushi\OneDrive\Desktop\ASimulatorSystem\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0826aefc-d061-4a13-a79e-613dd0ee51ff" name="Changes" comment="" />
+      <created>1697953232812</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697953232812</updated>
+    </task>
+    <servers />
+  </component>
+</project>
