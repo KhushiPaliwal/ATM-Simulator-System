@@ -1,0 +1,69 @@
+package org.example;
+
+import java.awt.Color;
+import java.awt.LayoutManager;
+import java.sql.ResultSet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class MiniStatement extends JFrame {
+    MiniStatement(String pinnumber) {
+        this.setTitle("Mini Statement");
+        this.setLayout((LayoutManager)null);
+        JLabel mini = new JLabel();
+        this.add(mini);
+        JLabel bank = new JLabel("Indian Bank");
+        bank.setBounds(150, 20, 100, 20);
+        this.add(bank);
+        JLabel card = new JLabel();
+        card.setBounds(20, 80, 300, 20);
+        this.add(card);
+        JLabel balance = new JLabel();
+        balance.setBounds(20, 400, 300, 20);
+        this.add(balance);
+
+        connection c;
+        String var10001;
+        try {
+            c = new connection();
+            ResultSet rs = c.s.executeQuery("select * from login where pin = '" + pinnumber + "'");
+
+            while(rs.next()) {
+                var10001 = rs.getString("cardnumber").substring(0, 4);
+                card.setText("Card Number: " + var10001 + "xxxxxxxx" + rs.getString("cardnumber").substring(12));
+            }
+        } catch (Exception var10) {
+            System.out.println(var10);
+        }
+
+        try {
+            c = new connection();
+            int bal = 0;
+            ResultSet rs = c.s.executeQuery("select * from bank where pin = '" + pinnumber + "'");
+
+            while(rs.next()) {
+                var10001 = mini.getText();
+                mini.setText(var10001 + "<html>" + rs.getString("date") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("type") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("amount") + "<br><br><html>");
+                if (rs.getString("type").equals("Deposit")) {
+                    bal += Integer.parseInt(rs.getString("amount"));
+                } else {
+                    bal -= Integer.parseInt(rs.getString("amount"));
+                }
+            }
+
+            balance.setText("Your current account balance is Rs " + bal);
+        } catch (Exception var9) {
+            System.out.println(var9);
+        }
+
+        mini.setBounds(20, 40, 400, 400);
+        this.setSize(400, 600);
+        this.setLocation(20, 20);
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new MiniStatement("");
+    }
+}
