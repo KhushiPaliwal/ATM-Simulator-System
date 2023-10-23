@@ -1,0 +1,111 @@
+package org.example;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
+public class PinChange extends JFrame implements ActionListener {
+    JPasswordField repin;
+    JPasswordField pin;
+    JButton change;
+    JButton back;
+    String pinnumber;
+
+    PinChange(String pinnumber) {
+        this.setLayout((LayoutManager)null);
+        this.pinnumber = pinnumber;
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(900, 900, 1);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel image = new JLabel(i3);
+        image.setBounds(0, 0, 900, 900);
+        this.add(image);
+        JLabel text = new JLabel("Change your Pin");
+        text.setForeground(Color.WHITE);
+        text.setFont(new Font("System", 1, 16));
+        text.setBounds(250, 280, 500, 35);
+        image.add(text);
+        JLabel pintext = new JLabel("New PIN:");
+        pintext.setForeground(Color.WHITE);
+        pintext.setFont(new Font("System", 1, 16));
+        pintext.setBounds(1665, 320, 180, 25);
+        image.add(pintext);
+        this.pin = new JPasswordField();
+        this.pin.setFont(new Font("Raleway", 1, 25));
+        this.pin.setBounds(330, 320, 180, 25);
+        image.add(this.pin);
+        JLabel repintext = new JLabel();
+        repintext.setFont(new Font("Raleway", 1, 25));
+        repintext.setBounds(165, 360, 180, 25);
+        image.add(repintext);
+        this.repin = new JPasswordField();
+        this.repin.setFont(new Font("Raleway", 1, 25));
+        this.repin.setBounds(330, 360, 180, 25);
+        image.add(this.repin);
+        this.change = new JButton("Change");
+        this.change.setBounds(355, 485, 150, 30);
+        this.change.addActionListener(this);
+        image.add(this.change);
+        this.back = new JButton("Back");
+        this.back.setBounds(355, 520, 150, 30);
+        this.back.addActionListener(this);
+        image.add(this.back);
+        this.setSize(900, 900);
+        this.setLocation(300, 0);
+        this.setUndecorated(true);
+        this.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == this.change) {
+            try {
+                String npin = this.pin.getText();
+                String rpin = this.repin.getText();
+                if (!npin.equals(rpin)) {
+                    JOptionPane.showMessageDialog((Component)null, "Entered pin doesnot match");
+                    return;
+                }
+
+                if (npin.equals("")) {
+                    JOptionPane.showMessageDialog((Component)null, "Please enter new Pin");
+                    return;
+                }
+
+                if (rpin.equals("")) {
+                    JOptionPane.showMessageDialog((Component)null, "Please re-enter new Pin");
+                }
+
+                connection c = new connection();
+                String query1 = "update bank set pin = '" + rpin + "' where pin = '" + this.pinnumber + "'";
+                String query2 = "update login set pin = '" + rpin + "' where pin = '" + this.pinnumber + "'";
+                String query3 = "update signupthree set pin = '" + rpin + "' where pin = '" + this.pinnumber + "'";
+                c.s.executeUpdate(query1);
+                c.s.executeUpdate(query2);
+                c.s.executeUpdate(query3);
+                JOptionPane.showMessageDialog((Component)null, "Pin changed successfully");
+                this.setVisible(false);
+                (new Transactions(rpin)).setVisible(false);
+            } catch (Exception var8) {
+                System.out.println(var8);
+            }
+        } else {
+            this.setVisible(false);
+            (new Transactions(this.pinnumber)).setVisible(true);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        (new PinChange("")).setVisible(true);
+    }
+}
